@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1> check for rectangle overlap </h1>>
+<script>
+
+function getVertices(h,k,l,b,x)
+{
+     p1= h+((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
+     q1= k+((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
+     p2= h-((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
+     q2= k+((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
+     p3= h-((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
+     q3= k-((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
+     p4= h+((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
+     q4= k-((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
+
+    var a = [[p1,q1],[p2,q2],[p3,q3],[p4,q4]];
+while(l!=0 || b!=0)
+    {
+    for (var i=0;i<l;i++)
+        for (var j=0; j<b ;j++)
+            {
+                a.push[[p1,q1],[p2,q2],[p3,q3],[p4,q4]];
+            }
+            return a;
+    }
+}
+
+var m1 = new getVertices(3,4,5,3,0)
+console.log(m1)
+
+var a2 = new getVertices(3,4,3,5,0)
+console.log(a2)
+//console.log(arr2[0][0])
+//console.log(arr2[2][0])
+
+function checkOverlap(){
+    if(( a1[1][0] > a2[3][0]) || (a1[3][0] > a2[1][0]) || (a1[1][1] > a2[3][1]) || (a1[3][1] > a2[1][1]))
+    {
+          return true
+    }
+    return false
+}
+
+console.log(checkOverlap(m1,a2));
+
+
+
+
+
+
+    
+</script>
+</body>
+</html>
