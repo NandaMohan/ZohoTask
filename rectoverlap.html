@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1> check for rectangle overlap </h1>>
+<h1>Rectangle overlap</h1>
 <script>
 
-function getVertices(h,k,l,b,x)
-{
-     p1= h+((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
-     q1= k+((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
-     p2= h-((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
-     q2= k+((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
-     p3= h-((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
-     q3= k-((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
-     p4= h+((l*Math.cos(x * Math.PI/ 180 ) - b*Math.sin(x * Math.PI/ 180 )) /2);
-     q4= k-((l*Math.sin(x * Math.PI/ 180 ) + b*Math.cos(x * Math.PI/ 180 )) /2);
+function checkOverlap(h1,k1,l1,b1,h2,k2,l2,b2) {
+    l1 = l1/2
+    b1 = b1/2
+    l2 = l2/2
+    b2 = b2/2
 
-    var a = [[p1,q1],[p2,q2],[p3,q3],[p4,q4]];
-while(l!=0 || b!=0)
-    {
-    for (var i=0;i<l;i++)
-        for (var j=0; j<b ;j++)
-            {
-                a.push[[p1,q1],[p2,q2],[p3,q3],[p4,q4]];
-            }
-            return a;
+    x1max = h1 + l1;
+    y1max = k1 + b1;
+    x1min = h1 - l1;
+    y1min = k1 - b1;
+    x2max = h2 + l2;
+    y2max = k2 + b2;
+    x2min = h2 - l2;
+    y2min = k2 - b2;
+
+    if (x1max == x2max && x1min == x2min && y1max == y2max
+            && y1min == y2min) {
+        // Check if the two are identical
+        return false
+
+    } else if (x1max <= x2max && x1min >= x2min && y1max <= y2max
+            && y1min >= y2min) {
+        // Check if r1 is in r2
+       return false
+
+    } else if (x2max <= x1max && x2min >= x1min && y2max <= y1max
+            && y2min >= y1min) {
+        // Check if r2 is in r1
+        return false
+    } else if (x1max < x2min || x1min > x2max || y1max < y2min
+            || y2min > y1max) {
+        // Check if the two overlap
+        //console.log("r2 does not overlaps r1");
+        return false
+    } else {
+        //console.log("r2 overlaps r1");
+        return true
     }
+
 }
 
-var a1 = new getVertices(3,4,5,3,0)
-console.log(m1)
+console.log(checkOverlap(-3,-4,5,3,7,7,3,5))
 
-var a2 = new getVertices(3,4,3,5,0)
-console.log(a2)
-     
-//console.log(arr2[0][0])
-//console.log(arr2[2][0])
-
-
-
-
-
-
-
-
-    
 </script>
 </body>
 </html>

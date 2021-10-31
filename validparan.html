@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h>Javascript valid paranthesis</h>
+<script>
+ function isValid(s) {
+    let array = []
+    for (let i=0 ; i<s.length ; i++)
+    {
+        let char = array[array.length -1]
+         if (s[i] === "(" || s[i] === "{" || s[i] === "[" )
+                array.push(s[i]);
+         else if(char == "(" && s[i] == ")" || char == "{" && s[i] === "}" || char == "[" && s[i] == "]" )
+         {
+             array.pop();
+         }
+         else 
+         return false;
+        }
+        return array.length ? false : true
+}
+
+ console.log(isValid("({[({[({[({[]})]})]})]})"))
+ console.log(isValid("({[({[({[({[]})]})]})]})("))
+ console.log(isValid("{[({([{(["))
+ console.log(isValid("[)"))
+ console.log(isValid("[){](}"))
+
+</script>
+</body>
+</html>
