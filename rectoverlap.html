@@ -27,23 +27,16 @@ while(l!=0 || b!=0)
     }
 }
 
-var m1 = new getVertices(3,4,5,3,0)
+var a1 = new getVertices(3,4,5,3,0)
 console.log(m1)
 
 var a2 = new getVertices(3,4,3,5,0)
 console.log(a2)
+     
 //console.log(arr2[0][0])
 //console.log(arr2[2][0])
 
-function checkOverlap(){
-    if(( a1[1][0] > a2[3][0]) || (a1[3][0] > a2[1][0]) || (a1[1][1] > a2[3][1]) || (a1[3][1] > a2[1][1]))
-    {
-          return true
-    }
-    return false
-}
 
-console.log(checkOverlap(m1,a2));
 
 
 
