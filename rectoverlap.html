@@ -19,12 +19,7 @@ function checkOverlap(h1,k1,l1,b1,h2,k2,l2,b2) {
     x2min = h2 - l2;
     y2min = k2 - b2;
 
-    if (x1max == x2max && x1min == x2min && y1max == y2max
-            && y1min == y2min) {
-        // Check if the two are identical
-        return false
-
-    } else if (x1max <= x2max && x1min >= x2min && y1max <= y2max
+    if (x1max <= x2max && x1min >= x2min && y1max <= y2max
             && y1min >= y2min) {
         // Check if rect1 is in rect2
        return false
