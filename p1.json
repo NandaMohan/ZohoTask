@@ -1,0 +1,28 @@
+{
+    "members" : [
+      {
+        "name" : "Mohan",
+        "age" : 29,
+        "Place" : "Chennai"
+       
+      },
+      {
+        "name" : "Madan",
+        "age" : 39,
+        "Place" : "Chennai"
+        
+      },
+      {
+        "name" : "Esaki",
+        "age" : 19,
+        "Place" : "bangalore"
+        
+      },
+      {
+        "name" : "Raja",
+        "age" : 19,
+        "Place" : "mumbai"
+        
+      }
+    ]
+  }
