@@ -1,0 +1,42 @@
+
+{
+    "place": [
+    
+        {
+            "pin_ZGD07" : "Chennai",
+            "pin_ZGD08" :  "Bangalore",
+            "pin_ZGD09" :  "Mumbai",
+            "pin_ZGD10" :  "Hyderabad"
+        }
+    ],
+
+    "members" : [
+      {
+        "name" : "Mohan",
+        "age" : 29,
+        "Gender" : "M",
+        "place" : "pin_ZGD07"
+
+      },
+      {
+        "name" : "Madan",
+        "age" : 39,
+        "Gender" : "M",
+        "place" : "pin_ZGD09"
+        
+      },
+      {
+        "name" : "Esaki",
+        "age" : 19,
+        "Gender" : "M",
+        "place" : "pin_ZGD10"
+        
+      },
+      {
+        "name" : "Raja",
+        "age" : 19,
+        "Gender" : "M",
+        "place" : "pin_ZGD07"
+      }
+    ]
+  }
