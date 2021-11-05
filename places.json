@@ -1,0 +1,37 @@
+{  
+    "places" : [
+			"Tambaram" ,
+                [
+                {
+						"Guduvanchery" : 67,
+						"Vandalur" : 46,
+						"Mahabalipuram" : 55
+                }
+                ],	
+			"Guduvanchery" ,
+                [
+                {
+						"Tambaram" : 67,
+						"Vandalur" : 91,
+						"Mahabalipuram" : 122
+                }
+                ],
+				"Vandalur" ,
+                [
+                    {
+						"Tambaram" : 46,
+						"Guduvanchery" : 91,
+						"Mahabalipuram" : 98
+                    }
+                ],
+				"Mahabalipuram" ,
+                [
+                    {
+						"Tambaram" : 55,
+						"Guduvanchery" :122,
+						"Vandalur" : 98
+                    }
+                ]
+            
+            ]
+}
