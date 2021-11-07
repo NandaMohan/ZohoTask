@@ -17,7 +17,7 @@ function generatePermutations(Arr){
 function pathDistance(path = []) {
         path.last = path[0];
          distance = 0;
-    while (next = A.slice(1, path.length)) 
+    while (next = A.slice(1, path.length-1)) 
         {
             distance += distances.get(last).get(next);
             last = next;
