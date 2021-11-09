@@ -12,68 +12,73 @@ function generatePermutations(Arr){
     A[a] = A[b];
     A[b] = tmp;
   }
+
+  function generate(n, A){
+    if (n == 1){
+      permutations.push(A.slice());
+    } else {
+      for(var i = 0; i <= n-1; i++) {
+        generate(n-1, A);
+        swap(n % 2 == 0 ? i : 0 ,n-1);
+      }
+    }
+  }
+  generate(A.length, A);
+  return permutations;
 }
 
-function pathDistance(path = []) {
-        path.last = path[0];
-         distance = 0;
-    while (next = A.slice(1, path.length-1)) 
-        {
-            distance += distances.get(last).get(next);
-            last = next;
-        }
-        return distance;
-    }
- 
-function places(Arr) {
-    {  
-    let Arr = [
+function generateCityRoutes(cities){
+  var pems = generatePermutations(cities.slice(1));
+  for (var i = 0; i < pems.length; i++){
+    pems[i].unshift(cities[0]);
+    pems[i].push(cities[0]);
+  }
+  return pems;
+}
+const obj = {  
+    "places" : 
         {
 			"pin_645" : "Tambaram",
             "pin_646" : "Guduvanchery",
             "pin_647" : "vandalur",
             "pin_648" : "Mahabalipuram"
         },
-    
-            "pin_645" ,
-                [
+            "pin_645" :
+                
                 {
 						"pin_646" : 67,
 						"pin_647" : 46,
 						"pin_648" : 55
                 }
-                ],	
-			"pin_646" ,
-                [
+                ,	
+			"pin_646" :
+                
                 {
 						"pin_645" : 67,
 						"pin_647" : 91,
 						"pin_648" : 122
                 }
-                ],
-			"pin_647" ,
-                [
+                ,
+				"pin_647" :
+                
                     {
 						"pin_645" : 46,
 						"pin_646" : 91,
 						"pin_648" : 98
                     }
-                ],
-			"pin_648" 
-                [
+                ,
+				"pin_648" :
+                
                     {
 						"pin_645" : 55,
 						"pin_646" :122,
 						"pin_647" : 98
                     }
-                ]
-            ]
-            
-}
-    console.log(A);
-    console.log(pathDistance());
+                    
+                }
+console.log(generatePermutations([2,3,4]))
+console.log(generateCityRoutes([1,2,3,4]));
 
-}
 
 
 
