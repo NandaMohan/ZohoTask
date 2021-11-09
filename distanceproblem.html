@@ -35,54 +35,47 @@ function generateCityRoutes(cities){
   }
   return pems;
 }
-const obj = {  
-    "places" : 
-        {
-	    "pin_645" : "Tambaram",
-            "pin_646" : "Guduvanchery",
-            "pin_647" : "vandalur",
-            "pin_648" : "Mahabalipuram"
-        },
-            "pin_645" :
+const Arr = {  
+
+ "pin_645" :
                 
                 {
+                        "pin_645" : 0,
 						"pin_646" : 67,
 						"pin_647" : 46,
 						"pin_648" : 55
-                }
-                ,	
+                },
+                
 			"pin_646" :
                 
                 {
 						"pin_645" : 67,
+                        "pin_646" : 0,
 						"pin_647" : 91,
 						"pin_648" : 122
-                }
-                ,
+                },
+                
 				"pin_647" :
                 
                     {
 						"pin_645" : 46,
 						"pin_646" : 91,
+                        "pin_647" : 0,
 						"pin_648" : 98
-                    }
-                ,
+                    },
+                
 				"pin_648" :
                 
                     {
 						"pin_645" : 55,
 						"pin_646" :122,
-						"pin_647" : 98
+						"pin_647" : 98,
+                        "pin_648" : 0
                     }
                     
                 }
-console.log(generatePermutations([2,3,4]))
-console.log(generateCityRoutes([1,2,3,4]));
-
-
-
-
-
+console.log(generatePermutations([Arr.pin_646,Arr.pin_647,Arr.pin_648]))
+console.log(generateCityRoutes([Arr.pin_645,Arr.pin_646,Arr.pin_646,Arr.pin_646]))
 
 </script>
 </body>
