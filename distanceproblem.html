@@ -85,6 +85,61 @@ const Arr = {
                 }
 console.log(generatePermutations([Arr.pin_646,Arr.pin_647,Arr.pin_648]))
 console.log(generateCityRoutes([Arr.pin_645,Arr.pin_646,Arr.pin_646,Arr.pin_646]))
+	
+var Dist = [ [Arr.pin_645.pin_645,Arr.pin_645.pin_646,Arr.pin_645.pin_647,Arr.pin_645.pin_648],
+[Arr.pin_646.pin_645,Arr.pin_646.pin_646,Arr.pin_646.pin_647,Arr.pin_646.pin_648],
+[Arr.pin_647.pin_645,Arr.pin_647.pin_646,Arr.pin_647.pin_647,Arr.pin_647.pin_648],
+[Arr.pin_648.pin_645,Arr.pin_648.pin_646,Arr.pin_648.pin_647,Arr.pin_648.pin_648]]
+            
+var city = [0,1,2,3]
+var totalcity = 4;
+var recordDist;
+var bestEver;
+
+function start1(){
+    var d = calcDistance(city);
+    //document.write(d+"<br>");
+    recordDist = d;
+    bestEver = city.slice();
+    find();
+}
+
+function find(){
+    for(var k = 0;k<20;k++){
+    var i = Math.floor(Math.random()*3+1);
+    //document.write(i+"<br>");
+    var j = Math.floor(Math.random()*3+1);
+    //document.write(j+"<br>");
+
+    swap(city,i,j);
+
+    var d = calcDistance(city);
+    if(d<recordDist){
+        recordDist = d;
+        bestEver = city.slice();
+    }
+}
+}
+
+function swap(a, i, j){
+        var temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+}
+    
+function calcDistance(points){
+        var sum = 0;
+        for(var i=0; i<points.length-1;i++){
+            var d = Dist[points[i]][points[i+1]];
+            sum = sum+d;
+        }
+        sum = sum + Dist[points[i]][points[0]];
+        document.write(sum+"<br>");
+        return sum;
+}
+start1();
+console.log("Path : "+bestEver+",0"+"<br>");
+console.log("Minimum distance : " + recordDist);
 
 </script>
 </body>
