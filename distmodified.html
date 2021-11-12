@@ -17,7 +17,7 @@ var DP
 var mark
 var position
 
-function TSP(mark,position){
+function TP(mark,position){
 
  if(mark==completed_visit){      // Initially checking whether all
                                  // the places are visited or not
@@ -48,7 +48,7 @@ function main(){
            DP[i][j] = -1;
        }
    }
- console.log(TSP(1,0))
+ console.log(TP(1,0))
 
 return 0
 }
