@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+function generatePermutations(Arr){
+  var permutations = [];
+  var A = Arr.slice();
+
+  function swap(a,b){
+    var tmp = A[a];
+    A[a] = A[b];
+    A[b] = tmp;
+  }
+
+  function generate(n, A){
+    if (n == 1){
+      permutations.push(A.slice());
+    } else {
+      for(var i = 0; i <= n-1; i++) {
+        generate(n-1, A);
+        swap(n % 2 == 0 ? i : 0 ,n-1);
+      }
+    }
+  }
+  generate(A.length, A);
+  return permutations;
+}
+
+function generateCityRoutes(cities){
+  var pems = generatePermutations(cities.slice(1));
+  for (var i = 0; i < pems.length; i++){
+    pems[i].unshift(cities[0]);
+    pems[i].push(cities[0]);
+  }
+  return pems;
+}
+
+const Arr = { 
+
+
+ "Tambaram" :
+               
+                {
+            "pin_645" : 0,
+						"pin_646" : 67,
+						"pin_647" : 46,
+						"pin_648" : 55
+                },
+                
+			"Guduvanchery" :
+                
+                {
+						"pin_645" : 67,
+            "pin_646" : 0,
+						"pin_647" : 91,
+						"pin_648" : 122
+                },
+                
+			"vandalur" :
+                
+                    {
+						"pin_645" : 46,
+						"pin_646" : 91,
+            "pin_647" : 0,
+						"pin_648" : 98
+                    },
+                
+			"Mahabalipuram" :
+                
+                    {
+						"pin_645" : 55,
+						"pin_646" :122,
+						"pin_647" : 98,
+            "pin_648" : 0,         
+                    }
+                    
+                  }
+            
+
+console.log(generatePermutations(["Guduvanchery","vandalur","Mahabalipuram"]))
+console.log(generateCityRoutes(["Tambaram","Guduvanchery","vandalur","Mahabalipuram"]))
+
+//console.log(generatePermutations([1,2,3]))
+//console.log(generateCityRoutes([0,1,2,3,]))
+
+const distan = [
+Object.values(Arr.Tambaram),
+Object.values(Arr.Guduvanchery),
+Object.values(Arr.vandalur),
+Object.values(Arr.Mahabalipuram)
+]
+n = 4
+var completed_visit = (1 << n) - 1;
+MAX = 9999
+const mark = 16, position = 4;
+let DP = 
+function TP(mark,position) {
+
+ if(mark==completed_visit){      // Initially checking whether all the places are visited or not
+   return distan[position][0];
+ }
+ if(DP[mark][position] != -1){
+
+    return DP[mark][position];
+ }
+
+ //Here we will try to go to every other places to take the minimum
+ // answer
+ answer = MAX;
+
+ //Visit rest of the unvisited cities and mark the . Later find the 
+ //minimum shortest path
+ for(city=0;city<n;city++){
+
+   if((mark&(1<<city))==0){
+
+     newAnswer = distan[position][city] + TP( mark|(1<<city),city);
+     answer = min(answer, newAnswer);
+   }
+   return DP[mark][position] = answer;
+ }
+ return 0
+}
+console.log(TP(1,0))
+
+
+</script>
+</body>
+</html>
