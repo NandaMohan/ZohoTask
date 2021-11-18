@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+ 
+    
+    var V, E;    
+    
+    var edge; 
+     
+    class Edge
+    {
+        constructor()
+        {
+    
+            this.src = 0;
+            this.dest = 0;
+    
+        }
+    };
+
+    function initialize(v,e)
+    {
+    
+        V = v;
+    
+        E = e;
+    
+        edge = Array.from(Array(E), () => Array());
+    }
+     
+  
+    
+    function find(parent, i)
+    {
+    
+        if (parent[i] == -1)
+    
+            return i;
+    
+             
+    
+        return find(parent, 
+    
+                    parent[i]);
+    }
+
+    
+    function Union(parent, x, y)
+    {
+    
+        parent[x] = y;
+    }
+    
+    function isCycle()
+    {
+    
+        
+    
+        var parent = Array(V).fill(0);
+    
+  
+    
+        for(var i = 0; i < V; ++i)
+    
+            parent[i] =- 1;
+ 
+    
+        for (var i = 0; i < E; ++i)
+    
+        {
+    
+            var x = find(parent, 
+    
+                         edge[i].src);
+    
+            var y = find(parent, 
+    
+                         edge[i].dest);
+    
+             
+    
+            if (x == y)
+    
+                return 1;
+    
+             
+    
+            Union(parent, x, y);
+    
+        }
+    
+        return 0;
+    }
+     
+    var V = 4, E = 6;
+    initialize(V, E);
+     
+    edge[0].src = 0;
+    edge[0].dest = 1;
+     
+    
+    edge[1].src = 0;
+    edge[1].dest = 2;
+     
+
+    edge[2].src = 1;
+    edge[2].dest = 2;
+
+    edge[3].src = 0;
+    edge[3].dest = 3;
+
+    edge[4].src = 1;
+    edge[4].dest = 3;
+
+    edge[5].src = 2;
+    edge[5].dest = 3;
+
+    if (isCycle() == 1)
+    
+        document.write("graph contains cycle");
+    else
+    
+        document.write("graph doesn't contain cycle");
+    
+
+    </script>
+    </body>
+</html>
