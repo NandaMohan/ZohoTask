@@ -8,11 +8,11 @@
     
     var edge; 
      
-    var Edge = Object
+    var Edge = Object 
     {
-       
             this.src = 0;
-            this.dest = 0
+            this.dest = 0;  
+            
     }
 
     function initialize(v,e)
@@ -24,93 +24,128 @@
     
         edge = Array.from(Array(E), () => Array());
     }
-     
-  
     
-    function find(parent, i)
+    function find(isVisited, i)
     {
     
-        if (parent[i] == -1)
+        if (isVisited[i] == -1)
     
             return i;
     
              
     
-        return find(parent, 
+        return find(isVisited, 
     
-                    parent[i]);
+                    isVisited[i]);
     }
+     
 
-    
-    function Union(parent, x, y)
+    function Union(isVisited, x, y)
     {
     
-        parent[x] = y;
+        isVisited[x] = y;
     }
     
     function isCycle()
     {
     
-        
+         
     
-        var parent = Array(V).fill(0);
+        // Allocate memory for 
     
-  
+        // creating V subsets
+    
+        var isVisited = Array(V).fill(0);
+    
+         
+    
+        // Initialize all subsets as 
+    
+        // single element sets
     
         for(var i = 0; i < V; ++i)
     
-            parent[i] =- 1;
- 
+            isVisited[i] =- 1;
+    
+         
+    
+        // Iterate through all edges of graph, 
+    
+        // find subset of both vertices of every 
+    
+        // edge, if both subsets are same, then 
+    
+        // there is cycle in graph.
     
         for (var i = 0; i < E; ++i)
     
         {
     
-            var x = find(parent, 
+            var x = find(isVisited, edge[i].src);
     
-                         edge[i].src);
+            var y = find(isVisited, edge[i].dest);
     
-            var y = find(parent, 
-    
-                         edge[i].dest);
-    
-             
-    
-            if (x == y)
+             if (x == y)
     
                 return 1;
     
              
     
-            Union(parent, x, y);
+            Union(isVisited, x, y);
     
         }
     
         return 0;
     }
-     
-    var V = 4, E = 6;
+
+    var V = 9, E = 14;
     initialize(V, E);
      
+    // Add edge 0-1
     edge[0].src = 0;
     edge[0].dest = 1;
      
-    
+    // Add edge 1-2
     edge[1].src = 0;
-    edge[1].dest = 2;
+    edge[1].dest = 7;
      
-
+    // Add edge 0-2
     edge[2].src = 1;
     edge[2].dest = 2;
 
-    edge[3].src = 0;
-    edge[3].dest = 3;
+    edge[3].src = 1;
+    edge[3].dest = 7;
 
-    edge[4].src = 1;
+    edge[4].src = 2;
     edge[4].dest = 3;
 
-    edge[5].src = 2;
-    edge[5].dest = 3;
+    edge[5].src = 4;
+    edge[5].dest = 5;
+
+    edge[6].src = 5;
+    edge[6].dest = 6;
+
+    edge[7].src = 6;
+    edge[7].dest = 7;
+
+    edge[8].src = 6;
+    edge[8].dest = 8;
+
+    
+    edge[9].src = 7;
+    edge[9].dest = 8;
+    
+    edge[10].src = 2;
+    edge[10].dest = 8;
+
+    edge[11].src = 2;
+    edge[11].dest = 5;
+
+    edge[12].src = 3;
+    edge[12].dest = 4;
+
+    edge[13].src = 3;
+    edge[13].dest = 5;
 
     if (isCycle() == 1)
     
@@ -119,7 +154,7 @@
     
         document.write("graph doesn't contain cycle");
     
-
+ 
     </script>
     </body>
 </html>
