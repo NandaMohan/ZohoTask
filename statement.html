@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+const JSONobj = {
+    
+    "Symbols": 
+    {
+        "*" : "multiplied",
+        "/" : "divide",
+        "+" : "add",
+        "-" : "subtract"
+    },
+    "Symbols":
+    {
+    "+" :
+        {
+            "expression" : "a + b",
+            "o_left1" : "a",
+            "o_right1": "b",
+            "statement" : "a is added to b "
+        },
+
+    "-" : 
+        {
+
+            "expression" : "c - d",
+            "o_left2" : "c",
+            "o_right2": "d",
+            "statement" : "d is subtracted from c "
+        },
+
+    "*" :
+        {
+            "expression" : "e * f",
+            "o_left3" : "e",
+            "o_right3": "f",
+            "statement" : "e is multiplied by f "
+         },
+
+    "/"  :
+         {
+            "expression" : "g / h",
+            "o_left4" : "g",
+            "o_right4": "h",
+            "statement" : "g is divided by h"
+         }
+
+    }    
+        }
+console.log(JSONobj.Symbols["*"].statement)
+console.log(JSONobj.Symbols["/"].statement)
+console.log(JSONobj.Symbols["+"].statement)
+console.log(JSONobj.Symbols["-"].statement)
+
+
+
+</script>
+</body>
+</html>
