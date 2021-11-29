@@ -1,34 +1,66 @@
 {
+    "precedence" :
+    {   "add" : 1,
+        "subtract" : 1,
+        "multiply" : 2,
+        "divide" : 2,
+        "modulo" : 2,
+        "negate" : 3,
+        "reciprocal" : 3,
+        "parantheses" : 4},
+
     "add": {
-        "precedence": 1,
+        
         "name": "add",
-        "Symbol": "+"
+        "Symbol": "+",
+        "Operand1" : "a",
+        "Operand2" : "b"
+        
       },
       "subtract": {
-        "precedence": 1,
+        
         "name": "subtract",
-        "Symbol": "-"
+        "Symbol": "-",
+         "Operand1" : "a"
+        "Operand2" : "b"
+          
       },
       "multiply": {
-        "precedence": 2,
-        "name": "multiply",
-        "Symbol": "*"
+         "name": "multiply",
+        "Symbol": "*",
+          "Operand1" : "a",
+        "Operand2" : "b"
       },
       "divide": {
-        "precedence": 2,
+        
         "name": "divide",
-        "Symbol": "/"
+        "Symbol": "/",
+        "Operand1" : "a",
+        "Operand2" : "b"
       },
-      "reciproc": {
-        "precedence": 3,
-        "singleInput": "true",
-        "name": "reciproc",
+        "modulo" :{
+        "name": "modulo",
+        "Symbol": "%",
+          "Operand1" : "a",
+        "Operand2" : "b"
+      },
+      "negate": {
+        "name": "negate",
+        "Symbol" : "-"
+        "Operand1" : "a"
+       
+      },
+    
+      "reciprocal": {
+     
+        "name": "reciprocal"
         "Symbol": "1/x"
+        "Operand1" : "a"
+
       },
-      "context": {
-        "precedence": 4,
-        "singleInput": "true",
+      "bracket": {
         "name": "context",
-        "Symbol" : '(' + a + ')'
+        "Symbol" : "(,)"
+        
       }
     }
