@@ -1,0 +1,34 @@
+{
+    "add": {
+        "precedence": 1,
+        "name": "add",
+        "Symbol": "+"
+      },
+      "subtract": {
+        "precedence": 1,
+        "name": "subtract",
+        "Symbol": "-"
+      },
+      "multiply": {
+        "precedence": 2,
+        "name": "multiply",
+        "Symbol": "*"
+      },
+      "divide": {
+        "precedence": 2,
+        "name": "divide",
+        "Symbol": "/"
+      },
+      "reciproc": {
+        "precedence": 3,
+        "singleInput": "true",
+        "name": "reciproc",
+        "Symbol": "1/x"
+      },
+      "context": {
+        "precedence": 4,
+        "singleInput": "true",
+        "name": "context",
+        "Symbol" : '(' + a + ')'
+      }
+    }
