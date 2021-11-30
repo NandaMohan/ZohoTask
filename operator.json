@@ -1,8 +1,7 @@
 {
-    "precedence" : ["1","2","3","4"],
-
-    "1":
-    "add": {
+"precedence" :{
+    "1":{
+    "add": 
     {
         
         "name": "add",
@@ -15,7 +14,7 @@
         
         "name": "subtract",
         "Symbol": "-",
-         "Operand1" : "a"
+         "Operand1" : "a",
         "Operand2" : "b"
           
       }
@@ -35,28 +34,31 @@
         "Operand2" : "b"
       }
 },
+    
 "3":{
+    
         "modulo" :{
         "name": "modulo",
         "Symbol": "%",
-          "Operand1" : "a",
+        "Operand1" : "a",
         "Operand2" : "b"
       },
       "negate": {
         "name": "negate",
-        "Symbol" : "-"
+        "Symbol" : "-",
         "Operand1" : "a"
        
       },
     
       "reciprocal": {
      
-        "name": "reciprocal"
-        "Symbol": "1/x"
+        "name": "reciprocal",
+        "Symbol": "1/x",
         "Operand1" : "a"
 
       }
 },
+
 "4":{
       "bracket": {
         "name": "context",
@@ -64,4 +66,5 @@
         
       }
     }
+}
 }
