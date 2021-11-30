@@ -1,15 +1,9 @@
 {
-    "precedence" :
-    {   "add" : 1,
-        "subtract" : 1,
-        "multiply" : 2,
-        "divide" : 2,
-        "modulo" : 2,
-        "negate" : 3,
-        "reciprocal" : 3,
-        "parantheses" : 4},
+    "precedence" : ["1","2","3","4"],
 
+    "1":
     "add": {
+    {
         
         "name": "add",
         "Symbol": "+",
@@ -24,7 +18,9 @@
          "Operand1" : "a"
         "Operand2" : "b"
           
-      },
+      }
+},
+"2":{
       "multiply": {
          "name": "multiply",
         "Symbol": "*",
@@ -37,7 +33,9 @@
         "Symbol": "/",
         "Operand1" : "a",
         "Operand2" : "b"
-      },
+      }
+},
+"3":{
         "modulo" :{
         "name": "modulo",
         "Symbol": "%",
@@ -57,10 +55,13 @@
         "Symbol": "1/x"
         "Operand1" : "a"
 
-      },
+      }
+},
+"4":{
       "bracket": {
         "name": "context",
         "Symbol" : "(,)"
         
       }
     }
+}
