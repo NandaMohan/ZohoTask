@@ -1,0 +1,56 @@
+{
+"Person":{
+    "UserId":{
+    "8567":
+    {
+        "user_name" : "nanda",
+        "age" : 21,
+        "DOB" : "26-04-2000",
+        "Interests" : ["books","movies"]
+    },
+    "4756":
+    {
+        "user_name" : "prem",
+        "age" : 25,
+        "DOB" : "26-04-1997",
+        "Interests" : ["Songs","movies"]
+    },
+    "5986":
+    {
+        "user_name" : "anuj",
+        "age" : 24,
+        "DOB" : "16-04-2000",
+        "Interests" : ["sports","poetry"]
+    },
+    "1367" :
+    {       
+        "user_name" : "dev",
+        "age" : 26,
+        "DOB" : "6-12-2001",
+        "Interests" : ["books","TV","poetry"]
+    }
+}
+},
+"Friendship":{
+    "relationshipId" :{
+        "100":{ 
+        "sourceUserId":"8567", 
+        "targetUserId":"5986", 
+        "relationshipType": "Friend",
+        "relationStartDate" : "2010-05-01"
+                },
+        "201":{ 
+        "sourceUserId":"4756", 
+        "targetUserId":"5986", 
+        "relationshipType": "Friend", 
+        "relationStartDate": "2010-05-01"
+              },
+        "501" : { 
+     "sourceUserId":"4756", 
+     "targetUserId":"1367", 
+     "relationshipType": "Friend", 
+     "relationStartDate": "2000-05-01"
+    }
+}
+}
+}

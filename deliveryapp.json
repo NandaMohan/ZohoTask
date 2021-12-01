@@ -1,0 +1,94 @@
+{
+    "city" : {
+        "ZGD_07" : "Sanatorium",
+        "ZGD_01" : "Tambaram",
+        "ZGD_02" : "Irumbuliyur"
+    },
+
+    "restaurant":{
+        "restaurant_id" :{
+         "7023" :{
+            "restaurant_name" : "A2B",
+            "city_id" : "ZGD_07",
+            "address" : "30 Ranga street",
+            "possible_delivery_areas" : ["ZGD_07","ZGD_01"],
+            "current_menu" : ["Friedrice", "Roti", "Dal", "Snacks", "Dosa"],
+            "confirmed_orders":
+            {
+                "confirm_id" : ["ABC54"]
+            }
+        },
+        "7054" :
+        {
+            "restaurant_name" : "A2C",
+            "city_id" : "ZGD_01",
+            "address" : "40 dharma street",
+            "possible_delivery_areas" : ["ZGD_01","ZGD_02"],
+            "current_menu" : ["Biryani","Friedrice", "Roti", "Idly", "Snacks", "Dosa"],
+            "confirmed_orders":
+            {
+                "confirm_id" : ["ABC67"]
+            }
+        }
+    }
+        },
+
+    "customer" : {
+    "customer_id":{
+    "8595"    : {
+        "customer_name" : "Dev",
+        "user_pwd" : "pa12",
+        "city_id" : "ZGD_07",
+        "address" : "5 Mark Street",
+        "confirm_id" : "ABC54",
+        "ph_no" : "9876489",
+        "restaurants_available" : ["7023"],
+        "Payment_done" : true
+    },
+
+    "8343" : {
+        "customer_name" : "prem",
+        "city_id" : "ZGD_02",
+        "user_pwd" : "pa13",
+        "address" : "9 Clark Street",
+        "confirm_id" : "ABC67",
+        "ph_no" : "9876423",
+        "restaurants_available" : ["7054"],
+        "Payment_done" : false
+        
+    }
+}
+},
+   
+"delivery_guy" :{
+    "emp_id":{
+    "S51" : 
+    {
+        "emp_name" : "Swiggy01",
+        "emp_pwd" : "sw12",
+        "city_id" : "ZGD_07",
+        "pickup_restaurant" : "7023",
+        "customer_details":
+        {
+        "customer_id" : 8595,
+        "confirm_id" : "ABC54"
+        },
+        "collect_payment" : false
+    },
+
+    "S52" : 
+    {
+        "emp_id" : "Swiggy02",
+        "emp_pwd" : "sw13",
+        "city_id" : "ZGD_02",
+        "pickup_restaurant" : "7054",
+        "customer_details":
+        {
+        "customer_id" : 8343,
+        "confirm_id" : "ABC67"
+        },
+        "collect_payment" : true
+      }
+    }
+}
+}
