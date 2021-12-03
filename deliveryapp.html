@@ -1,0 +1,153 @@
+<script>
+function distance(lat1, lon1, lat2, lon2, unit) {
+      var radlat1 = Math.PI * lat1/180
+      var radlat2 = Math.PI * lat2/180
+      var theta = lon1-lon2
+      var radtheta = Math.PI * theta/180
+      var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      if (dist > 1) {
+        dist = 1;
+      }
+      dist = Math.acos(dist)
+      dist = dist * 180/Math.PI
+      dist = dist * 60 * 1.1515
+      if (unit=="K") { dist = dist * 1.609344 }
+      if (unit=="N") { dist = dist * 0.8684 }
+      return dist
+    }
+    
+var db = {
+    "city" : {
+        "ZGD_07" : "Sanatorium",
+        "ZGD_01" : "Tambaram",
+        "ZGD_02" : "Irumbuliyur"
+    },
+
+    "restaurant":{
+        "restaurant_id" :{
+         "7023" :{
+            "r_name" : "A2B",
+            "city_id" : "ZGD_07",
+            "address" : "30 Ranga street",
+            "lat" : 12.92868,
+            "lng" : 80.11778,
+            "possible_delivery_areas" : ["ZGD_07","ZGD_01"],
+            "current_menu" : ["Friedrice", "Roti", "Dal", "Snacks", "Dosa"],
+            "confirmed_orders":
+            {
+                "confirm_id" : ["ABC54"]
+            }
+        },
+        "7054" :
+        {
+            "r_name" : "A2C",
+            "city_id" : "ZGD_01",
+            "address" : "40 dharma street",
+            "lat" : 12.918464608841782, 
+            "lng" : 80.10735990144903,
+            "possible_delivery_areas" : ["ZGD_01","ZGD_02"],
+            "current_menu" : ["Biryani","Friedrice", "Roti", "Idly", "Snacks", "Dosa"],
+            "confirmed_orders":
+            {
+                "confirm_id" : ["ABC67"]
+            }
+        }
+    }
+        },
+
+    "customer" : {
+    "customer_id":{
+    "8595"    : {
+        "customer_name" : "Dev",
+        "user_pwd" : "pa12",
+        "city_id" : "ZGD_07",
+        "lat" : 12.922293277086888, 
+        "lng" : 80.10993308355712,
+        "address" : "5 Mark Street",
+        "confirm_id" : "ABC54",
+        "ph_no" : "9876489",
+        "restaurants_available" : ["7023"],
+        "Payment_done" : true
+    },
+
+    "8343" : {
+        "customer_name" : "prem",
+        "city_id" : "ZGD_02",
+        "user_pwd" : "pa13",
+        "lat" :12.92555176444614,
+        "lng" : 80.10878738604673,
+        "address" : "9 Clark Street",
+        "confirm_id" : "ABC67",
+        "ph_no" : "9876423",
+        "restaurants_available" : ["7054"],
+        "Payment_done" : false
+        
+    }
+}
+},
+   
+"delivery_guy" :{
+    "emp_id":{
+    "S51" : 
+    {
+        "emp_name" : "Swiggy01",
+        "emp_pwd" : "sw12",
+        "city_id" : "ZGD_07",
+        "pickup_restaurant" : "7023",
+        "lat" : 12.926097867664028,
+        "lng" :  80.11858490193231,
+        "customer_details":
+        {
+        "customer_id" : 8595,
+        "confirm_id" : "ABC54"
+        },
+        "collect_payment" : false
+    },
+
+    "S52" : 
+    {
+        "emp_id" : "Swiggy02",
+        "emp_pwd" : "sw13",
+        "city_id" : "ZGD_02",
+        "pickup_restaurant" : "7054",
+        "lat" : 12.923727931358991,
+        "lng" :  80.11414581178909,
+        "customer_details":
+        {
+        "customer_id" : 8343,
+        "confirm_id" : "ABC67"
+        },
+        "collect_payment" : true
+      }
+    }
+}
+}  
+
+
+var data = [{
+    code : db.restaurant.restaurant_id["7023"].r_name,
+    lat : db.restaurant.restaurant_id["7023"].lat,
+    lng : db.restaurant.restaurant_id["7023"].lng,
+    location : "Stop1"
+},
+{
+    code : db.restaurant.restaurant_id["7054"].r_name,
+    lat : db.restaurant.restaurant_id["7054"].lat,
+    lng : db.restaurant.restaurant_id["7054"].lng,
+    location : "Stop2"
+}];
+
+var html = ""
+var poslat = db.delivery_guy.emp_id.S51.lat
+var poslng = db.delivery_guy.emp_id.S51.lng
+
+for (var i = 0; i < data.length; i++) {
+        // if this location is within 0.1KM of the user, add it to the list
+        if (distance(poslat, poslng, data[i].lat, data[i].lng, "K") >= 0.5) {
+            html += data[i].location + ' - ' + data[i].code ;
+        }
+    }
+    
+    console.log(html)
+    
+      </script>
