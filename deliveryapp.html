@@ -23,8 +23,8 @@ var db = {
         "ZGD_02" : "Irumbuliyur"
     },
 
-    "restaurant":{
-        "restaurant_id" :{
+    "hotel":{
+        "hotels_id" :{
          "7023" :{
             "r_name" : "A2B",
             "city_id" : "ZGD_07",
@@ -66,7 +66,7 @@ var db = {
         "address" : "5 Mark Street",
         "confirm_id" : "ABC54",
         "ph_no" : "9876489",
-        "restaurants_available" : ["7023"],
+        "hotelss_available" : ["7023"],
         "Payment_done" : true
     },
 
@@ -79,7 +79,7 @@ var db = {
         "address" : "9 Clark Street",
         "confirm_id" : "ABC67",
         "ph_no" : "9876423",
-        "restaurants_available" : ["7054"],
+        "hotelss_available" : ["7054"],
         "Payment_done" : false
         
     }
@@ -93,7 +93,7 @@ var db = {
         "emp_name" : "Swiggy01",
         "emp_pwd" : "sw12",
         "city_id" : "ZGD_07",
-        "pickup_restaurant" : "7023",
+        "pickup_hotels" : "7023",
         "lat" : 12.926097867664028,
         "lng" :  80.11858490193231,
         "customer_details":
@@ -109,7 +109,7 @@ var db = {
         "emp_id" : "Swiggy02",
         "emp_pwd" : "sw13",
         "city_id" : "ZGD_02",
-        "pickup_restaurant" : "7054",
+        "pickup_hotels" : "7054",
         "lat" : 12.923727931358991,
         "lng" :  80.11414581178909,
         "customer_details":
@@ -123,19 +123,34 @@ var db = {
 }
 }  
 
-
 var data = [{
-    code : db.restaurant.restaurant_id["7023"].r_name,
-    lat : db.restaurant.restaurant_id["7023"].lat,
-    lng : db.restaurant.restaurant_id["7023"].lng,
+    code : db.hotel.hotels_id["7023"].r_name,
+    lat : db.hotel.hotels_id["7023"].lat,
+    lng : db.hotel.hotels_id["7023"].lng,
     location : "Stop1"
 },
 {
-    code : db.restaurant.restaurant_id["7054"].r_name,
-    lat : db.restaurant.restaurant_id["7054"].lat,
-    lng : db.restaurant.restaurant_id["7054"].lng,
+    code : db.hotel.hotels_id["7054"].r_name,
+    lat : db.hotel.hotels_id["7054"].lat,
+    lng : db.hotel.hotels_id["7054"].lng,
     location : "Stop2"
-}];
+},
+{
+    code : db.customer.customer_id["8595"].customer_name,
+    lat : db.customer.customer_id["8595"].lat,
+    lng : db.customer.customer_id["8595"].lng,
+    location : "Stop3"
+},
+{
+    code : db.customer.customer_id["8343"].customer_name,
+    lat : db.customer.customer_id["8343"].lat,
+    lng : db.customer.customer_id["8343"].lng,
+    location : "Stop4"
+}
+
+];
+
+
 
 var html = ""
 var poslat = db.delivery_guy.emp_id.S51.lat
@@ -145,9 +160,11 @@ for (var i = 0; i < data.length; i++) {
         // if this location is within 0.1KM of the user, add it to the list
         if (distance(poslat, poslng, data[i].lat, data[i].lng, "K") >= 0.5) {
             html += data[i].location + ' - ' + data[i].code ;
+            driver_lat = data[i].lat
+            driver_lng = data[i].lng
         }
     }
     
-    console.log(html)
+    console.log(html,driver_lat,driver_lng)
     
       </script>
