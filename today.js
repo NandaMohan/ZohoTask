@@ -27,8 +27,6 @@ rp("https://www.bullion-rates.com/gold/INR-history.htm", (error, response, html)
     if(!error && response.statusCode==200) {
         const $= cheerio.load(html);
 
-        const datarow= $(".HeaderRow");
-        const output= datarow.find("th").text();
         $(".DataRow").each((i, data) => {
             const item= $(data). text();
 
