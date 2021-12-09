@@ -1,0 +1,59 @@
+{
+    "transact_buy":
+    {   
+    "c_id" :{
+    "ZGD09" :
+    {
+        "name" : "Nanda",
+        "address" : "8 Dharma Street tambaram",
+        "ph_no" : "986737932",
+        "shop_name" : "PrinceJewellers",
+        "t_id":
+        {
+            "1234e32" :
+            {
+                "txn_date" : "25-06-2021",
+                "amount" : 4356,
+                "qty_gram" : 1 
+            },
+            "1234e33" :
+            {
+                "txn_date" : "26-06-2021",
+                "amount" : 4390,
+                "qty_gram" : 1 
+            },
+            "1234e34" :
+            {
+                "txn_date" : "27-06-2021",
+                "amount" : 8645,
+                "qty_gram" : 2 
+            }
+        }
+    }
+    }
+    },
+    "transact_sell" : 
+    {
+        "st_id":{
+        "124s5":
+        {
+            "c_id"  : "ZGDO9",
+            "t_id"  : "1234e32",
+            "amount" : 4370
+        },
+        "124s6":
+        {
+            "c_id"  : "ZGDO9",
+            "t_id"  : "1234e33",
+            "amount" : 4392
+        },
+        "124s7":
+        {
+            "c_id"  : "ZGDO9",
+            "t_id"  : "1234e34",
+            "amount" : 8728
+        }
+    
+    }
+    }
+}
