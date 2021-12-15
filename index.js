@@ -24,7 +24,7 @@ rp(requestOptions).then(response => {
 rp("https://in.tradingview.com/symbols/USDINR").then(response => {
   //console.log('API call response:', response.data)
   const dom = new JSDOM(response.body);
-  console.log(dom.window.document.querySelector('div.tv-symbol-price-quote__value js-symbol-last').children('span'));
+  console.log(dom.window.document.querySelector('div[class = "tv-symbol-price-quote__value js-symbol-last"]'));
 
 }).catch((err) => {
   console.log('API call error:', err.message);
