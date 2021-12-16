@@ -41,6 +41,17 @@ rp("https://economictimes.indiatimes.com/markets/forex").then(response2 => {
   console.log('error:', err.message);
 });
 
+Promise.all([rp(requestOptions),rp("https://economictimes.indiatimes.com/markets/forex")])
+  .then(responses => {
+    // all responses are resolved successfully
+    for(let response of responses) {
+      function compare() {
+        console.log( (USDINR > USDTINR) ? true : false);
+      }
+    }
+    console.log(responses);
+  })
+
 
 
 // rp("https://in.tradingview.com/symbols/USDINR").then(response => {
