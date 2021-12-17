@@ -1,6 +1,7 @@
 const rp = require('request-promise');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+var mail1 = require('./mail.js')
 
 const requestOptions = {
   method: 'GET',
@@ -16,49 +17,45 @@ const requestOptions = {
   gzip: true
 };
 
-var Price = []
 rp(requestOptions).then(response1 => {
   //console.log('API call response:', response.data);
-
-  if(response1.data && Array.isArray(response1.data)) {
-     let usdt = response1.data.filter(crypt => crypt.symbol === 'USDT' );
-     USDTINR = parseFloat(usdt[0].quote.INR.price.toFixed(4))
-     console.log(USDTINR)
-     
-  }
-
+  function rate1(response1){
+      if(response1.data && Array.isArray(response1.data)) {
+        let usdt = response1.data.filter(crypto => crypto.symbol === 'USDT' );
+        USDTINR = parseFloat(usdt[0].quote.INR.price.toFixed(4));
+      return USDTINR 
+ }}
+  
+  //console.log(rate1(response1))
+  
+  
 }).catch((err) => {
   console.log('error:', err.message);
 });
 
 rp("https://economictimes.indiatimes.com/markets/forex").then(response2 => {
-   //console.log('API call response:', response.data)
+   //console.log('API call response:', response2)
+  function rate2(response2){
       const dom = new JSDOM(response2)
       let USDINR = parseFloat(dom.window.document.querySelector('tr[class = "fRatesData active"]').children[1].textContent)
-      console.log(USDINR)
+      return USDINR
+  }
+
+  //console.log(rate2(response2))
+ // expect(rate2(response2)).toBe(rate1(response1));
+
 
 }).catch((err) => {
   console.log('error:', err.message);
 });
 
-Promise.all([rp(requestOptions),rp("https://economictimes.indiatimes.com/markets/forex")])
-  .then(responses => {
-    // all responses are resolved successfully
-    for(let response of responses) {
-      function compare() {
-        console.log( (USDINR > USDTINR) ? true : false);
-      }
-    }
-    console.log(responses);
-  })
 
-
-
-// rp("https://in.tradingview.com/symbols/USDINR").then(response => {
-//   //console.log('API call response:', response.data)
-//   const dom = new JSDOM(response.body);
-//   console.log(dom.window.document.querySelector('div[class = "tv-symbol-price-quote__value js-symbol-last"]'));
-
-// }).catch((err) => {
-//console.log('API call error:', err.message);
-//});
+async function testEquality() {
+  let [usdtinr,usdinr] = await Promise.all([rp(requestOptions),rp("https://economictimes.indiatimes.com/markets/forex")])
+  if (usdtinr > usdinr) {
+    return mail1
+  } else {
+    console.log("Tether<USD")
+  };
+}
+testEquality().catch(err => { console.log('Caught error', err); });
