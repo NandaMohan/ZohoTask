@@ -1,0 +1,32 @@
+{
+"person" :
+{
+    "name" : "Nanda",
+    "id"   :  234,
+    "ph_no" : 9466475902,
+    "lat" : 12.2324425,
+    "lng" :  80.232425,
+    "ph_model" : "Redmi Note 6 Pro"
+}, 
+"photo" :
+{
+    "Width" : 4000,
+    "height" : 3000,
+    "thumbnail" : {},
+    "exif" : 
+    {
+        "FNumber": 2.8,
+        "ExposureProgram": 2,
+        "ISO": 200,
+        "DateTimeOriginal": "2000:08:04 18:22:57",
+        "CreateDate": "2000:08:04 18:22:57"
+    },
+    "gps" :
+    {
+        "GPSLat" : 12.2324425,
+        "GPSLng" : 80.232425
+    },
+    "id" : 234
+ 
+}
+}
