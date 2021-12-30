@@ -3,8 +3,6 @@ const bodyParser = require('body-parser');
 // App constants
 const port = process.env.PORT || 5000;
 const apiPrefix = '/api';
-
-// Store data in-memory, not suited for production use!
 const db = {
 	test: {
 	  userId : 1,
@@ -20,12 +18,9 @@ const db = {
 	}
 	}
   };
-// Create the Express app & setup middlewares
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors({ origin: /http:\/\/(127(\.\d){3}|localhost)/}));
-app.options('*', cors());
 
 // Configure routes
 const router = express.Router();
@@ -75,9 +70,6 @@ router.get('/accounts/:userId', (req, res) => {
   return res.json(account);
 });
 
-// ----------------------------------------------
-
-// Remove specified account
 router.delete('/accounts/:userId', (req, res) => {
   const account = db[req.params.userId];
 
