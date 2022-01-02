@@ -3,27 +3,18 @@ const bodyParser = require('body-parser');
 // App constants
 const port = process.env.PORT || 5000;
 const apiPrefix = '/api';
-const db = {
-	test: {
-	  userId : 1,
-	  person : 
-	  {
-		  name : 'Nanda',
-		  ph_no : 934932942
-	},
-	photo : 
-	{
-		lat : 12.8730300,
-		lng : 80.4332344
-	}
-	}
-  };
+const fs = require('fs')
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Configure routes
 const router = express.Router();
+
+// Store data in-memory, not suited for production use!
+const db = require("./obj")
+// Create the Express app & setup middlewares
+
 
 router.post('/accounts', (req, res) => {
   // Check mandatory request parameters
@@ -52,13 +43,21 @@ router.post('/accounts', (req, res) => {
         lng : req.body.lng
     }
   };
-  db[req.body.userId] = account;
 
-  return res.status(201).json(account);
+  db.push(account)
+  return res.status(201).json();
 });
 
 router.get('/accounts', (req, res) => {
-	return res.json(db);
+  fs.writeFile("./public/data.txt", JSON.stringify(db), (err) => {
+    if (err)
+      console.log(err);
+    else {
+      console.log("File written successfully\n");
+      return res.json(db);
+    }
+  })
+  	
   });
 
 router.get('/accounts/:userId', (req, res) => {
@@ -68,8 +67,12 @@ router.get('/accounts/:userId', (req, res) => {
     return res.status(404).json({ error: 'User does not exist' });
   }
   return res.json(account);
+
 });
 
+// ----------------------------------------------
+
+// Remove specified account
 router.delete('/accounts/:userId', (req, res) => {
   const account = db[req.params.userId];
 
