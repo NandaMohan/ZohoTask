@@ -62,13 +62,11 @@ router.get('/accounts', (req, res) => {
 
 router.get('/head', (req,res) => { res.json(req.headers)})
 router.get('/cookie', function (req, res) {
-  // Cookies that have not been signed
   res.cookie('id','1234')
   res.send('cookie set')
  
 })
 router.get('/clear', function (req, res) {
-  // Cookies that have not been signed
   res.clearCookie('id')
   res.send('cookie cleared');
 })
