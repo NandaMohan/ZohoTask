@@ -65,7 +65,7 @@ router.get('/cookie', function (req, res) {
   // Cookies that have not been signed
   res.cookie('id','1234')
   res.send('cookie set')
-  console.log(req.cookies)
+ 
 })
 router.get('/clear', function (req, res) {
   // Cookies that have not been signed
