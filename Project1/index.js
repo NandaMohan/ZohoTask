@@ -71,6 +71,18 @@ router.get('/clear', function (req, res) {
   res.send('cookie cleared');
 })
 
+router.post("/convert", function(req, res, next) {
+  console.log(req.body);
+  if(typeof req.body.content == 'undefined' || req.body.content == null) {
+      res.json(["error", "No data found"]);
+  } else {
+      res.json(["markdown", req.body.content]);
+      text = req.body.content;
+        html = converter.makeHtml(text);
+        res.json(["markdown", html]);
+  }
+});
+
 router.get('/accounts/:userId', (req, res) => {
   const account = db[req.params.userId];
   // Check if account exists
