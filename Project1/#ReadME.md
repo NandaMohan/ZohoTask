@@ -30,4 +30,4 @@ console.log("Hello")
 
 3. Update the title to match the name of your website.
  [file link](./public/data.txt)
-4. ![file link](./Project1/#ReadMe.md)
+4. ![file link](./#ReadMe.md)
