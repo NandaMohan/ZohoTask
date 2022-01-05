@@ -29,5 +29,5 @@ console.log("Hello")
     ```
 
 3. Update the title to match the name of your website.
- [file link](data.txt)
- [file link](./#ReadMe.md#First-Heading)
+ [file link](./public/data.txt)
+ ![file link](./#ReadMe.md#First-Heading)
