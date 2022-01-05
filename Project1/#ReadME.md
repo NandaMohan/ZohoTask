@@ -30,5 +30,5 @@ console.log("Hello")
 
 3. Update the title to match the name of your website.
  [file link](./public/data.txt)
- 
-4.[file link](./#ReadME/##FirstHeading)
+
+4.[here](#Second-Heading), is a link to the second heading
