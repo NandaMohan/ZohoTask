@@ -31,5 +31,5 @@ console.log("Hello")
 3. Update the title to match the name of your website.
  [file link](./public/data.txt)
 
-4. Here's a link to a markdown file in public folder[file link](./public/Readme1)
-5. link to second .md file [file link](./public/Readme2)
+4. Here's a link to a markdown file in public folder[file link](./public/Readme1.md)
+5. link to second .md file [file link](./public/Readme2.md)
