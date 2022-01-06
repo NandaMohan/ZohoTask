@@ -31,4 +31,5 @@ console.log("Hello")
 3. Update the title to match the name of your website.
  [file link](./public/data.txt)
 
-4.[here](#Second-Heading), is a link to the second heading
+4. Here's a link to a markdown file in public folder[file link](./Readme1)
+5. link to second .md file [file link](./Readme2)
