@@ -33,4 +33,4 @@ console.log("Hello")
 
 4. Here's a link to a markdown file in public folder[file link](./public/Readme1.md)
 5. link to second .md file [file link](./public/Readme2.md)
-6. link to a md file within a folder (./Readme4.md)
+6. link to a md file within a folder [file link](./Readme4.md)
