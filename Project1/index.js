@@ -82,6 +82,12 @@ router.post("/convert", function(req, res, next) {
   }
 });
 
+router.get('/md',(req,res) => {
+const markdown = readFileSync('Readme.md', {encoding: 'utf8'});
+const links = markdownLinkExtractor(markdown, false);
+links.forEach(link => console.log(link));
+})
+
 router.get('/accounts/:userId', (req, res) => {
   const account = db[req.params.userId];
   // Check if account exists
