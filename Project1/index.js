@@ -83,9 +83,18 @@ router.post("/convert", function(req, res, next) {
 });
 
 router.get('/md',(req,res) => {
-const markdown = readFileSync('Readme.md', {encoding: 'utf8'});
-const links = markdownLinkExtractor(markdown, false);
-links.forEach(link => console.log(link));
+  var dirPath = path.resolve(__dirname); // path to your directory goes here
+  var filesList;
+  fs.readdir(dirPath, function(err, files){
+    filesList = files.filter(function(e){
+      return path.extname(e).toLowerCase() === '.md'
+    });
+    console.log(filesList);
+    filesList.forEach(element => { const markdown = readFileSync('element', {encoding: 'utf8'});
+    const links = markdownLinkExtractor(markdown, false);
+    links.forEach(link => console.log(link))
+  })
+  })
 })
 
 router.get('/accounts/:userId', (req, res) => {
